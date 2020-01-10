@@ -1,0 +1,72 @@
+   /* Make the image fully responsive */
+  .jumbotron {
+      width: 100%;
+      min-height:500px;
+      height: 100%;
+      background-image: url('../../assets/img/construction2.jpg')
+  }
+ 
+  .constructor-footer{
+      width: 100%;
+      min-height:300px;
+      height: 100%;
+      margin: auto;
+      background-color: #000080;
+      color: white;
+  }
+
+  .footerList {
+    display: flex;
+    align-items: center;
+  }
+
+.footerList > ul {
+    list-style-type: none;
+    line-height: 28px;
+ }
+
+.footerList > ul > li {
+    margin: 0 0 10px 0;
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.bg-image.overlay-primary {
+    position: relative;
+}
+
+.bg-image.fixed {
+    background-attachment: fixed;
+}
+
+.bg-image.overlay-primary:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(137, 186, 22, 0.9);
+    z-index: 1;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.number {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #fff;
+}
+
+.caption {
+    font-size: 1rem;
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+}
