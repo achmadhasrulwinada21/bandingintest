@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Examples & Codes
+   ========================================================================== */
+
+.at-heading {
+  padding-top: 2.5rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 5rem;
+  }
+  p {
+    font-size: $lead-font-size;
+    font-weight: $lead-font-weight;
+    margin-bottom: 0;
+  }
+}
+.at-section {
+  padding: 1.5rem 0;
+  @include media-breakpoint-up(md) {
+    padding: 3rem 0;
+  }
+  + .at-section {
+    padding-top: .75rem;
+    @include media-breakpoint-up(md) {
+      padding-top: 1.5rem;
+    }
+  }
+  .at-subheading {
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2rem;
+    }
+    h3 {
+      margin-bottom: 1rem;
+    }
+  }
+  .at-example {
+    position: relative;
+    padding: 10px 0;
+    border: solid $gray-50;
+    background: $gray-20;
+    @include media-breakpoint-up(md) {
+      padding: 1.5rem;
+      margin-right: 0;
+      margin-left: 0;
+      border-width: .2rem;
+    }
+    > .container-fluid {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+  .at-code {
+    background-color: $gray-50;
+    padding: 1rem 0;
+    color: $black;
+    pre {margin-bottom: 0;}
+    code {color: $black;}
+    .nt {color: #2f6f9f; white-space: pre;}
+    .na {color: #4f9fcf; white-space: pre;}
+    .n {color: #d44950; white-space: pre;}
+  }
+}

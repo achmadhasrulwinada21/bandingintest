@@ -1,0 +1,44 @@
+/* ==========================================================================
+   Scroll Hint
+   ========================================================================== */
+
+.scroll-hint {
+  position: absolute;
+  display: block;
+  height: 75px;
+  width: 200px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  img {
+    position: absolute;
+    width: 50px;
+    margin-left: -25px;
+    left: 50%;
+    bottom: 0;
+    display: inline-block;
+    animation: arrow_move 1s linear;
+    animation-iteration-count: infinite;
+  }
+  &.bottom-0 {bottom: 0;}
+  &.bottom-25px {bottom: 25px;}
+  &.scroll-hint-w-text {
+    p {
+      text-align: center;
+      display: block;
+      font-size: $small-font-size;
+      color: rgba(255,255,255,.5);
+      font-weight: 200;
+      margin-top: 55px;
+      margin-bottom: 0;
+      @include transition($transition-base);
+    }
+    &:hover {
+      p {color: rgba(255,255,255,.75);}
+    }
+  }
+}
+@-webkit-keyframes arrow_move {0% {opacity: 1; bottom: 100px; } 50% {opacity: 0; bottom: 96px; } 90% {opacity: 0; bottom: 100px; } 100% {opacity: 1; bottom: 100px; } }
+@-moz-keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }
+@-o-keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }
+@keyframes arrow_move {0% {opacity: 1; bottom: 48px; } 50% {opacity: 0; bottom: 24px; } 90% {opacity: 0; bottom: 48px; } 100% {opacity: 1; bottom: 48px; } }

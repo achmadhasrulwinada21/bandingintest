@@ -1,0 +1,76 @@
+/* ==========================================================================
+   Select2 Overrider
+   ========================================================================== */
+
+/* Single
+-------------------------------------------------- */
+.select2-container--default .select2-selection--single {
+  background: $input-bg;
+  // border-radius: $input-border-radius;
+  border-radius: 0;
+  border: $input-border-width solid $input-border-color;
+  padding: $input-padding-y $input-padding-x;
+  line-height: $input-line-height;
+  height: auto;
+  &:focus {
+    outline: none;
+  }
+}
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single {
+  border-color: $component-active-bg;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: $input-line-height;
+  padding-left: 0;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 50%;
+  margin-top: -13px;
+  right: 6px;
+}
+
+/* Multiple
+-------------------------------------------------- */
+.select2-container--default .select2-selection--multiple {
+  background: $input-bg;
+  // border-radius: $input-border-radius;
+  border-radius: 0;
+  border: $input-border-width solid $input-border-color;
+  padding: $input-padding-y $input-padding-x;
+  line-height: $input-line-height;
+  height: 42px;
+  &:focus {outline: none;}
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border-color: $component-active-bg;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered {
+  padding: 0;
+  height: 24px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+  height: 24px;
+  font-size: .9rem;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+  margin-right: 4px;
+}
+
+/* Open / Option
+-------------------------------------------------- */
+.select2-container--open .select2-dropdown--above {
+  // border-bottom-left-radius: $input-border-radius;
+  // border-bottom-right-radius: $input-border-radius;
+  border-radius: 0;
+}
+.select2-container--default .select2-search--dropdown .select2-search__field {
+  border: $input-border-width solid $input-border-color;
+  &:focus {outline: none;}
+}
+.select2-results__option {
+  padding-left: $input-padding-x;
+  padding-right: $input-padding-x;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $component-active-bg;
+}

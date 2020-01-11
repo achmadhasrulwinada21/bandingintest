@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Animation.css Overrider
+   ========================================================================== */
+
+// FadeInUp / Right / Down / Left Fixes
+@-webkit-keyframes fadeInUp {0% {opacity: 0; -webkit-transform: translateY(6px); transform: translateY(6px); } 100% {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } } @keyframes fadeInUp {0% {opacity: 0; -webkit-transform: translateY(6px); -ms-transform: translateY(6px); transform: translateY(6px); } 100% {opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); } }
+@-webkit-keyframes fadeInRight {0% {opacity: 0; -webkit-transform: translateX(6px); transform: translateX(6px); } 100% {opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); } } @keyframes fadeInRight {0% {opacity: 0; -webkit-transform: translateX(6px); -ms-transform: translateX(6px); transform: translateX(6px); } 100% {opacity: 1; -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); } }
+@-webkit-keyframes fadeInDown {0% {opacity: 0; -webkit-transform: translateY(-6px); transform: translateY(-6px); } 100% {opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } } @keyframes fadeInDown {0% {opacity: 0; -webkit-transform: translateY(-6px); -ms-transform: translateY(-6px); transform: translateY(-6px); } 100% {opacity: 1; -webkit-transform: translateY(0); -ms-transform: translateY(0); transform: translateY(0); } }
+@-webkit-keyframes fadeInLeft {0% {opacity: 0; -webkit-transform: translateX(-6px); transform: translateX(-6px); } 100% {opacity: 1; -webkit-transform: translateX(0); transform: translateX(0); } } @keyframes fadeInLeft {0% {opacity: 0; -webkit-transform: translateX(-6px); -ms-transform: translateX(-6px); transform: translateX(-6px); } 100% {opacity: 1; -webkit-transform: translateX(0); -ms-transform: translateX(0); transform: translateX(0); } }
+
+// Delays
+$class-delay: delayp;
+@for $i from 1 through 40 { 
+  .#{$class-delay}#{$i} {
+    animation-delay: 0s + $i*0.1;
+    -moz-animation-delay: 0s + $i*0.1; 
+    -webkit-animation-delay: 0s + $i*0.1; 
+    -o-animation-delay: 0s + $i*0.1; 
+    transition-delay: 0s + $i*0.1; 
+  }
+}
+
+// Viewport animation
+.vp-fadein, .vp-fadeinup, .vp-fadeinright, .vp-fadeindown, .vp-fadeinleft, 
+.vp-slideinup, .vp-slideinright, .vp-slideindown, .vp-slideinleft,
+.vp-rotatein, .vp-rorateinupright, .vp-rotateinupleft, .vp-rotateindownright, .vp-rotateindownleft, 
+.vp-zoomin, .vp-zoominup, .vp-zoominright, .vp-zoomindown, .vp-zoominleft, 
+.vp-jackinthebox, .vp-rollin, .vp-rollout {
+  opacity: 0;
+}
+
+// Make viewport animation works
+.animated {opacity: 0;}
+
+// Add opacity 1 on top up visibility: visible for animation
+.visible {opacity: 1;}

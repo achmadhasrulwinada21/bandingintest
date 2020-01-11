@@ -1,0 +1,14 @@
+/* ==========================================================================
+   Reboot.scss Overrider
+   ========================================================================== */
+
+// Common reboot
+a {@include transition($transition-base);}
+button:focus {outline: 0;}
+
+// Remove input type number spinner
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

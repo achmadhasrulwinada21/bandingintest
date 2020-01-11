@@ -1,0 +1,278 @@
+<div class="main-sidebar sidebar-style-2">
+    <aside id="sidebar-wrapper">
+        <div class="sidebar-brand">
+            <a routerLink="/{{prefix}}">Construction Vidi</a>
+        </div>
+        <div class="sidebar-brand sidebar-brand-sm">
+            <a routerLink="/{{prefix}}">CV</a>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li><a class="nav-link" routerLink="/{{prefix}}/dashboard"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+            <!-- <li class="menu-header" *ngxPermissionsOnly="['view-role', 'view-user']">User Credential</li>
+            <ng-template ngxPermissionsOnly="view-role">
+                <li>
+                    <a class="nav-link" routerLink="/{{prefix}}/roles">
+                        <i class="fas fa-user-tie"></i> <span>Roles</span>
+                    </a>
+                </li>
+            </ng-template>
+            <ng-template ngxPermissionsOnly="view-user">
+                <li>
+                    <a class="nav-link" routerLink="/{{prefix}}/users">
+                        <i class="fas fa-users"></i> <span>Users</span>
+                    </a>
+                </li>
+            </ng-template> -->
+            <li class="menu-header">Main Menu</li>
+            <li>
+                <a class="nav-link" routerLink="/{{prefix}}/menu">
+                    <i class="fas fa-list"></i><span>Menu Management</span></a>
+            </li>
+            <li>
+                <a class="nav-link" routerLink="/{{prefix}}/menu">
+                    <i class="fas fa-images"></i><span>Banner Management</span></a>
+            </li>
+            <li>
+                <a class="nav-link" routerLink="/{{prefix}}/menu">
+                    <i class="fas fa-list"></i><span>Product Management</span></a>
+            </li>
+            <li>
+                <a class="nav-link" routerLink="/{{prefix}}/menu">
+                    <i class="fas fa-cog"></i><span>Global Setting</span></a>
+            </li>
+            
+              <!-- Insurance Management -->
+            <!-- <li class="dropdown"
+                *ngxPermissionsOnly="['view-benefit', 'view-benefit-level', 'view-campaign','view-modal-factor','view-questionnaire']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-heartbeat"></i> <span>Insurance
+                        Management</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-benefit">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/benefit"><span>Benefit</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-benefit-level">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/benefit-level"><span>Benefit Level</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-campaign">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/campaign"><span>Campaign Management</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-campaign">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/campaign-sales"><span>Campaign Sales</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-modal-factor">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/modal-factor"><span>Modal Factor</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-questionnaire">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/underwriting-questionnaire"><span>U.
+                                    Questionnaire</span></a></li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Master Management -->
+            <!-- <li class="dropdown"
+                *ngxPermissionsOnly="['view-master-formula', 'view-product-category','view-product-health','view-term-life','view-rider','view-master-payment-method']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-database"></i>
+                    <span>Master</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-agent">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/agent"><span>Agent</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-product-category">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/product-category"> <span>Category</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-currency">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/currency"><span>Currency</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-email-pic">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/email-pic"><span>Email PIC</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-booking-policy">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/booking-policy"><span>Booking Policy</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-master-formula">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/master-formula"><span>Formula</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-identity">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/identity"><span>Identity</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-job-occupation">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/job-occupation"><span>Job Occupation</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-job-occupation">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/job-occupation2"><span>Job Occupation
+                                    2</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-marital-status">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/marital-status"><span>Marital Status</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-payment-method">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/payment-method"><span>Payment Method</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-relationship">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/relationship"><span>Relationship</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-setup-rate">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/master-setup-rate"><span>Setup Rate</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-scheduler-time">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/scheduler-time"><span>Scheduler Time</span></a>
+                        </li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-setup-rate">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/bank"><span>Bank</span></a></li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Product Management -->
+            <!-- <li class="dropdown" *ngxPermissionsOnly="['view-product', 'view-product-archive']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-hands"></i>
+                    <span>Product</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-product">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/product"> <span>List</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-product">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/product-archived"> <span>Archived</span></a>
+                        </li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Claim Management -->
+            <!-- <li class="dropdown" *ngxPermissionsOnly="['view-claim']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-file-alt"></i>
+                    <span>Claim</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-claim">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/claim"> <span>List</span></a></li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Customer Management -->
+            <!-- <li class="dropdown" *ngxPermissionsOnly="['view-customer']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-user-injured"></i>
+                    <span>Customer</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-customer">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/customer"> <span>List</span></a></li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Policy Management -->
+            <!-- <li class="dropdown" *ngxPermissionsOnly="['view-policy']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-file-powerpoint"></i>
+                    <span>Policy</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-policy">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/policy"> <span>List</span></a></li>
+                    </ng-template>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="/{{prefix}}#" *ngxPermissionsOnly="['view-integration-txt']" class="nav-link has-dropdown"><i
+                        class="fas fa-handshake"></i> <span>Integration</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-integration-txt">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/integration-txt"> <span>NBU TXT</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-integration-txt-payment">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/integration-txt-payment"> <span>Payment
+                                    TXT</span></a></li>
+                    </ng-template>
+                </ul>
+            </li> -->
+            <!-- Event Management -->
+            <!-- <li class="dropdown" *ngxPermissionsOnly="['view-event', 'view-event-category']">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-calendar"></i>
+                    <span>Event</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-event-category">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/event/category"> <span>Category</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-event">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/event"> <span>Event</span></a></li>
+                    </ng-template>
+                </ul>
+            </li>
+            <ng-template ngxPermissionsOnly="view-menu">
+                <li><a class="nav-link" routerLink="/{{prefix}}/menu"><i class="fab fa-staylinked"></i>
+                        <span>Navbar</span></a></li>
+            </ng-template>
+            <ng-template ngxPermissionsOnly="view-single-page">
+                <li><a class="nav-link" routerLink="/{{prefix}}/single-page"><i class="fas fa-scroll"></i>
+                        <span>Page</span></a></li>
+            </ng-template>
+            <ng-template ngxPermissionsOnly="view-member-get-member">
+                <li><a class="nav-link" routerLink="/{{prefix}}/member-get-member"><i class="fas fa-users-cog"></i>
+                        <span>Member Get Member</span></a></li>
+            </ng-template>
+            <ng-template ngxPermissionsOnly="view-faq">
+                <li><a class="nav-link" routerLink="/{{prefix}}/faq"><i class="fas fa-question"></i>
+                        <span>FAQ</span></a></li>
+            </ng-template>
+            <ng-template ngxPermissionsOnly="view-banner">
+                <li><a class="nav-link" routerLink="/{{prefix}}/banner"><i class="fas fa-images"></i>
+                        <span>Banner</span></a></li>
+            </ng-template> -->
+            <!-- <ng-template ngxPermissionsOnly="view-article">
+        <li><a class="nav-link" routerLink="/{{prefix}}/article"><i class="fas fa-file"></i> <span>Article</span></a></li>
+      </ng-template> -->
+            <!-- <ng-template>
+                <li><a class="nav-link" routerLink="/{{prefix}}/artikel"><i class="fas fa-file"></i>
+                        <span>Artikel</span></a></li>
+            </ng-template> -->
+            <!-- <ng-template ngxPermissionsOnly="view-log">
+                <li><a class="nav-link" routerLink="/{{prefix}}/log"><i class="fas fa-file-export"></i>
+                        <span>Log</span></a></li>
+            </ng-template>
+            <li class="dropdown">
+                <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fab fa-creative-commons-share"></i>
+                    <span>Reports</span></a>
+                <ul class="dropdown-menu">
+                    <ng-template ngxPermissionsOnly="view-visitor">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/reports/visitor"> <span>Visitor</span></a></li>
+                    </ng-template>
+                    <ng-template ngxPermissionsOnly="view-cta">
+                        <li><a class="nav-link" routerLink="/{{prefix}}/reports/cta"> <span>Cta</span></a></li>
+                    </ng-template> -->
+                </ul>
+            <!-- </li> -->
+            <!-- <li class="dropdown">
+        <a href="/{{prefix}}#" class="nav-link has-dropdown"><i class="fas fa-cubes"></i> <span>CMS</span></a>
+        <ul class="dropdown-menu">
+            <ng-template ngxPermissionsOnly="view-setting">
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Homepage</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Simple Start</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Term 10</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>About</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Claim</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Faq</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>Benefit</span></a></li>
+                <li><a class="nav-link" routerLink="/{{prefix}}/cms/homepage"><span>My Avrist</span></a></li>
+            </ng-template> 
+        </ul>
+      </li> -->
+            <!-- <ng-template ngxPermissionsOnly="view-setting">
+                <li><a class="nav-link" routerLink="/{{prefix}}/setting"><i class="fas fa-cogs"></i>
+                        <span>Settings</span></a></li>
+            </ng-template> -->
+
+
+        <!-- </ul> -->
+
+        <!-- <div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+      <a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+        <i class="fas fa-rocket"></i> Documentation
+      </a>
+    </div>         -->
+    </aside>
+</div>

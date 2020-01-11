@@ -1,0 +1,28 @@
+/* ==========================================================================
+   Body & Layout
+   ========================================================================== */
+
+// Prevent extra space on the right side of the viewport
+html {
+  overflow-x: hidden !important; 
+}
+body {
+  overflow-x: hidden !important;
+}
+
+// Custom container width
+.container-xs {
+  @include media-breakpoint-up(sm) {
+    max-width: 540px;
+  }
+}
+.container-sm {
+  @include media-breakpoint-up(md) {
+    max-width: 720px;
+  }
+}
+.container-md {
+  @include media-breakpoint-up(lg) {
+    max-width: 960px;
+  }
+}

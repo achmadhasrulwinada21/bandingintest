@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Loader
+   ========================================================================== */
+
+// Loader basic styling
+.loader-wrapper {
+  @include position(fixed, 0, 0, 0, 0);
+  z-index: 99999999999;
+  height: 100%;
+  overflow: hidden;
+}
+.loader {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear;
+  animation-iteration-count: infinite;
+  margin: -15px;
+  @include position(absolute, 50%, 50%, 50%, 50%);
+}
+.loader-light {
+  background: $white;
+  .loader {
+    border: 2px solid $gray-100;
+    border-top: 2px solid $gray-400;
+  }
+}
+.loader-dark {
+  background: $black;
+  .loader {
+    border: 2px solid $gray-800;
+    border-top: 2px solid $white;
+  }
+}
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); } 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin {0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }

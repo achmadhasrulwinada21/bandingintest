@@ -1,0 +1,47 @@
+/* ==========================================================================
+   Alert
+   ========================================================================== */
+
+.alert {
+  border: none;
+  .close {
+    position: absolute;
+    color: $white;
+    text-shadow: none;
+    @include transition($transition-base);
+    &:hover, &:focus, &:active {
+      color: $white !important;
+    }
+  }
+  &.fixed-top {
+    margin-bottom: 0;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    text-align: left;
+    z-index: 1040;
+    width: 100%;
+    @include media-breakpoint-up(md) {
+      text-align: center;
+      padding-right: 0;
+    }
+    .container {
+      @include media-breakpoint-down(sm) {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.alert-success {
+  background: $green;
+  color: $white;
+}
+.alert-danger {
+  background: $red;
+  color: $white;
+}
+.alert-warning {
+  background: $yellow;
+  color: $white;
+}

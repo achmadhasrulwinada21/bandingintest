@@ -1,0 +1,367 @@
+/* Btn
+-------------------------------------------------- */
+.btn-secondary-danger {
+  background: $secondary;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: $danger;
+    color: $white;
+  }
+}
+
+/* Utilties
+-------------------------------------------------- */
+.btn-x-auto-200 {
+  display: block;
+  margin: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 200px;
+  }
+}
+
+.btn-x-auto-250 {
+  display: block;
+  margin: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 250px;
+  }
+}
+
+.btn-x-auto-300 {
+  display: block;
+  margin: auto;
+  width: 100%;
+
+  @include media-breakpoint-up(md) {
+    width: 300px;
+  }
+}
+
+
+/* Animated Button
+-------------------------------------------------- */
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65, 0, .076, 1)) {
+  transition: $property $duration $ease;
+}
+
+a.btn-effect {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+
+  &.learn-more {
+    width: 12rem;
+    height: auto;
+
+    .circle {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+      position: relative;
+      margin: 0;
+      width: 3rem;
+      height: 3rem;
+      background: $black;
+      border-radius: 1.625rem;
+
+      .icon {
+        @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $white;
+
+        &.arrow {
+          @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+          left: 0.625rem;
+          width: 1.125rem;
+          height: 0.125rem;
+          background: none;
+
+          &::before {
+            position: absolute;
+            content: '';
+            top: -0.25rem;
+            right: 0.0625rem;
+            width: 0.625rem;
+            height: 0.625rem;
+            border-top: 0.125rem solid #fff;
+            border-right: 0.125rem solid #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    .button-text {
+      @include transition(all, 0.45s, cubic-bezier(0.65, 0, .076, 1));
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.75rem 0;
+      margin: 0 0 0 1.85rem;
+      color: $black;
+      font-weight: 700;
+      line-height: 1.6;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &:hover {
+    .circle {
+      width: 100%;
+
+      .icon {
+        &.arrow {
+          background: $white;
+          transform: translate(1rem, 0);
+        }
+      }
+    }
+
+    .button-text {
+      color: $white;
+    }
+  }
+}
+
+.btn-w-shadow {
+  position: relative;
+  box-shadow: 4px 4px 0px 0px $black;
+  transition: all 300ms ease-in-out;
+  left: 0;
+  top: 0;
+
+  &:hover {
+    left: 4px;
+    top: 4px;
+    box-shadow: 0 0 0 0 $black;
+  }
+}
+
+.btn-submit {
+  position: relative;
+
+  .fa-circle-notch {
+    position: absolute;
+    left: 1rem;
+    top: .75rem;
+  }
+}
+
+
+
+.animateSuccessTip {
+  animation: animateSuccessTip .75s;
+}
+
+.animateSuccessLong {
+  animation: animateSuccessLong .75s;
+}
+
+.f-modal-icon.f-modal-success.animate:after {
+  animation: rotatePlaceholder 4.25s ease-in;
+}
+
+.f-modal-icon.f-modal-error.animate:after {
+  animation: rotatePlaceholder 4.25s ease-in;
+}
+
+.animateErrorIcon {
+  animation: animateErrorIcon .5s;
+}
+
+.animateXLeft {
+  animation: animateXLeft .75s;
+}
+
+.animateXRight {
+  animation: animateXRight .75s;
+}
+
+.scaleWarning {
+  animation: scaleWarning 0.75s infinite alternate;
+}
+
+.pulseWarningIns {
+  animation: pulseWarningIns 0.75s infinite alternate;
+}
+
+@keyframes animateSuccessTip {
+
+  0%,
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
+
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 45px;
+  }
+}
+
+@keyframes animateSuccessLong {
+
+  0%,
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+
+  84% {
+    width: 55px;
+    right: 0;
+    top: 35px;
+  }
+
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+
+@keyframes rotatePlaceholder {
+
+  0%,
+  5% {
+    transform: rotate(-45deg);
+  }
+
+  100%,
+  12% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes animateErrorIcon {
+  0% {
+    transform: rotateX(100deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes animateXLeft {
+
+  0%,
+  65% {
+    left: 82px;
+    top: 95px;
+    width: 0;
+  }
+
+  84% {
+    left: 14px;
+    top: 33px;
+    width: 47px;
+  }
+
+  100% {
+    left: 17px;
+    top: 37px;
+    width: 47px;
+  }
+}
+
+@keyframes animateXRight {
+
+  0%,
+  65% {
+    right: 82px;
+    top: 95px;
+    width: 0;
+  }
+
+  84% {
+    right: 14px;
+    top: 33px;
+    width: 47px;
+  }
+
+  100% {
+    right: 16px;
+    top: 37px;
+    width: 47px;
+  }
+}
+
+@keyframes scaleWarning {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseWarning {
+  0% {
+    background-color: #fff;
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  30% {
+    background-color: #fff;
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    background-color: #F8BB86;
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseWarningIns {
+  0% {
+    background-color: #F8D486;
+  }
+
+  100% {
+    background-color: #F8BB86;
+  }
+}

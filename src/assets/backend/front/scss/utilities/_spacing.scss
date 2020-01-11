@@ -1,0 +1,51 @@
+/* ==========================================================================
+   Spacing
+   ========================================================================== */
+
+/// Padding main, commonly used for sections
+.py-main,
+.section-main {
+  padding-top: ($spacer * 2.5);
+  padding-bottom: ($spacer * 2.5);
+  @include media-breakpoint-up(md) {
+    padding-top: ($spacer * 5);
+    padding-bottom: ($spacer * 5);
+  }
+}
+
+/// Padding box, commonly used for box layout
+.p-box {
+  padding: ($spacer * 1);
+  @include media-breakpoint-up(md) {
+    padding: ($spacer * 2);
+  }
+}
+
+/// Margin utilities for breakpoint down
+/// @example css - Result
+///   .mt-sm-down-3 {
+///     margin-top: 1rem !important; 
+///   }
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+
+        .#{$abbrev}t#{$infix}-down-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$infix}-down-#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$infix}-down-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$infix}-down-#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+  }
+}

@@ -24,13 +24,16 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/backend/modules/bootstrap/css/bootstraps.min.css",
+              "src/assets/backend/css/style.css",
+              "src/assets/backend/css/components.css",
               "src/styles.css",
-              "src/assets/frontend/css/plugins/bootstrap/bootstrap.min.css"
+              "src/assets/backend/modules/fontawesome/css/all.min.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
-              "src/assets/frontend/js/plugins/bootstrap/jquery-3.4.1.slim.min.js",
-              "src/assets/frontend/js/plugins/bootstrap/popper.min.js",
-              "src/assets/frontend/js/plugins/bootstrap/bootstrap.min.js"
+              "src/assets/backend/modules/jquery.min.js",
+              "node_modules/jquery-ui-dist/jquery-ui.min.js"    
             ]
           },
           "configurations": {

@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Antikode Mixins
+   ========================================================================== */
+
+/// Modified version of Andy.scss font-face mixin with directory variables
+/// @access public
+/// @param {String} $font-name - Font family name
+/// @param {String} $file-name - File name (no extension)
+/// @param {String | Number} $weight [normal] - Font weight
+/// @param {String} $style [normal] - Font style
+/// @example scss - Usage
+///   @include font-face('gotham', '/fonts/gotham');
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url('#{$dir-fonts}/#{$file-name}' + '.eot');
+    src: url('#{$dir-fonts}/#{$file-name}' + '.eot?#iefix')  format('embedded-opentype'),
+         url('#{$dir-fonts}/#{$file-name}' + '.woff') format('woff'),
+         url('#{$dir-fonts}/#{$file-name}' + '.ttf')  format('truetype'),
+         url('#{$dir-fonts}/#{$file-name}' + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+

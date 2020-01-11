@@ -1,0 +1,103 @@
+/* ========================================================================================================================================
+   jQuery UI 1.12.1 Overriders (Author's Version of Normalization)
+   ========================================================================================================================================= */
+
+/* Image Path
+-------------------------------------------------- */
+// .ui-icon {
+//   width: 16px;
+//   height: 16px;
+// }
+
+// .ui-icon,
+// .ui-widget-content .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_444444_256x240.png");
+// }
+
+// .ui-widget-header .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_444444_256x240.png");
+// }
+
+// .ui-state-hover .ui-icon,
+// .ui-state-focus .ui-icon,
+// .ui-button:hover .ui-icon,
+// .ui-button:focus .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_555555_256x240.png");
+// }
+
+// .ui-state-active .ui-icon,
+// .ui-button:active .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_ffffff_256x240.png");
+// }
+
+// .ui-state-highlight .ui-icon,
+// .ui-button .ui-state-highlight.ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_777620_256x240.png");
+// }
+
+// .ui-state-error .ui-icon,
+// .ui-state-error-text .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_cc0000_256x240.png");
+// }
+
+// .ui-button .ui-icon {
+//   background-image: url("node_modules/jquery-ui-dist/images/ui-icons_777777_256x240.png");
+// }
+
+/* Font
+-------------------------------------------------- */
+.ui-widget {
+  font-family: $font-family-sans-serif;
+}
+
+/* Datepicker
+-------------------------------------------------- */
+.ui-state-default {
+  border: 1px solid #eee;
+  border-radius: .25rem;
+  background: #f6f6f6;
+  font-weight: normal;
+  color: $black;
+  text-align: center;
+}
+
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+  @extend .ui-state-default;
+}
+
+.ui-state-hightlight {
+  border: 1px solid #dad55e;
+  background: $white;
+  color: #777620;
+}
+
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  @extend .ui-state-hightlight;
+}
+
+.ui-state-active {
+  border: 1px solid $black;
+  background: $black;
+  font-weight: normal;
+  color: $white;
+}
+
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  @extend .ui-state-active;
+}
+
+.ui-widget-header {
+  border: none;
+  background: transparent;
+  color: #333333;
+  font-weight: bold;
+}

@@ -1,0 +1,30 @@
+/* ==========================================================================
+   Card
+   ========================================================================== */
+
+// Custom border color and box shadow
+.card {
+  border-color: $gray-20;
+  border: none;
+  box-shadow: $box-shadow-sm;
+}
+
+// Give .card boxless effect
+.card-boxless {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  .card-header {
+    border-radius: 0;
+    padding: 0;
+    border-bottom: 0;
+    background: transparent;
+    margin: $spacer 0;
+  }
+  .card-body {
+    padding: 0;
+  }
+  img + .card-body {
+    padding-top: $card-spacer-x;
+  }
+}

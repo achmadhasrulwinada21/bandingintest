@@ -5,8 +5,12 @@ import { FrontendComponent } from './frontend/frontend.component'
 
 const routes: Routes = [
   {
-    path:'',
+    path:'frontend',
     component: FrontendComponent
+  },
+  {
+    path: '',
+    loadChildren: "./backend/backend.module#BackendModule"
   }
 ];
 

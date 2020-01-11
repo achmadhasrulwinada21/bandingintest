@@ -1,0 +1,157 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+/* Label
+-------------------------------------------------- */
+label {
+  font-size: .9rem;
+  font-weight: $font-weight-bold;
+}
+
+/* Label
+-------------------------------------------------- */
+.help-block {
+  color: $gray-400;
+  display: block;
+}
+
+/* Form Control
+-------------------------------------------------- */
+.form-control {
+  position: relative;
+
+  &:disabled {
+    background: $gray-100;
+    color: $gray-400;
+  }
+}
+
+.form-control-feedback {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Form Password
+-------------------------------------------------- */
+.form-control-password+.fal {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/* Custom Forms
+-------------------------------------------------- */
+.custom-select {
+  transition: $input-transition;
+  -webkit-appearance: none;
+
+  background: url(../../assets/img/common/chevron-down-solid.svg) no-repeat right 0.75rem center/8px 10px;
+}
+
+
+.custom-file-input {
+  transition: $input-transition;
+}
+
+// Override success validation color (initially "success" color)
+.was-validated .custom-control-input:invalid~.custom-control-label,
+.custom-control-input.is-invalid~.custom-control-label {
+  color: $body-color;
+}
+
+.was-validated .custom-control-input:valid~.custom-control-label::before,
+.custom-control-input.is-valid~.custom-control-label::before {
+  background: $custom-control-indicator-bg;
+}
+
+.was-validated .custom-control-input:valid:checked~.custom-control-label::before,
+.custom-control-input.is-valid:checked~.custom-control-label::before {
+  background: $component-active-bg;
+}
+
+.was-validated .form-control:valid,
+.form-control.is-valid,
+.was-validated .custom-select:valid,
+.custom-select.is-valid {
+  border-color: $input-border-color;
+}
+
+.was-validated .form-control:valid:focus,
+.form-control.is-valid:focus,
+.was-validated .custom-select:valid:focus,
+.custom-select.is-valid:focus {
+  border-color: $input-focus-border-color;
+  box-shadow: 0 0 0 $input-btn-focus-width $input-btn-focus-color;
+}
+
+.custom-checkbox {
+  padding-left: 1.75rem;
+
+  .custom-control-label {
+    font-weight: $font-weight-normal;
+
+    &::before,
+    &::after {
+      left: -1.75rem;
+    }
+  }
+}
+
+// Custom styling for form control
+.form-control-line {
+  border-radius: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  padding-left: 0;
+}
+
+// Checkbox (Box Style)
+.checkbox-box {
+  display: inline-block;
+  padding-left: 0;
+  width: 2.5rem;
+  min-height: 2rem;
+  position: relative;
+
+  .custom-control-label {
+    line-height: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .custom-control-label::before {
+    top: 0;
+    width: 2.5rem;
+    height: 2rem;
+    z-index: -1;
+  }
+
+  .custom-control-label::after {
+    display: none;
+  }
+}
+
+/* Input Group
+-------------------------------------------------- */
+.input-group-icon {
+
+  .form-control,
+  .custom-select,
+  .custom-file {
+    border-right-color: transparent;
+  }
+
+  .input-group-text {
+    background: transparent;
+    border-left: none;
+  }
+}

@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<div class="section-header">
+    <h1>Menu Management</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a routeLink="/">Dashboard</a></div>
+        <div class="breadcrumb-item"><a>Menu management</a></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Menu management</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="menuForm" (ngSubmit)="createMenu()">
+                        <input type="text" formControlName="id" class="hilang" />
+                         <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="menu_name">Menu<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="menu_name" 
+                                     class="form-control" 
+                                     formControlName="menu_name"
+                                     placeholder="fill menu heree"
+                                     [class.is-invalid]="menu_name.invalid &&
+                                              menu_name.touched">   
+                            <div *ngIf="menu_name.invalid && menu_name.touched">
+                            <small *ngIf="menu_name.errors?.required" class="text-danger">menu Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                 <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="menu_link">Link<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="menu_link" 
+                                     class="form-control" 
+                                     formControlName="menu_link"
+                                     placeholder="fill link heree"
+                                     [class.is-invalid]="menu_link.invalid &&
+                                              menu_link.touched">   
+                            <div *ngIf="menu_link.invalid && menu_link.touched">
+                            <small *ngIf="menu_link.errors?.required" class="text-danger">link Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                <div class="row text-right">
+                    <div class="col-md-12">
+                        <button *ngIf="!edited" type="submit" [disabled]="!menuForm.valid"
+                            class="btn btn-icon icon-right btn-primary">
+                            <i class="far fa-save"></i>
+                            Save</button>
+                        <button *ngIf="edited" type="submit" [disabled]="!menuForm.valid"
+                            class="btn btn-icon icon-right btn-primary">
+                            <i class="far fa-save"></i>
+                            Update</button>
+                        &nbsp;
+                
+                        <a (click)="resetForm()" class="btn btn-icon icon-right btn-light"><i class="fas fa-backspace"></i> Cancel</a>
+                    </div>
+                </div>
+                    </form>
+                    <div class="row mt-5">
+                        <div class="table-responsive">
+                            <table id="MenuDatatables" 
+                                   class="table table-striped dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Menu</th>
+                                        <th>Link</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

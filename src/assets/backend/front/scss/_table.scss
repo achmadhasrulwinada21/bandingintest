@@ -1,0 +1,168 @@
+/* ==========================================================================
+   Data Table
+   ========================================================================== */
+
+.table-no-header {
+
+  .dataTables_filter,
+  .dataTables_length {
+    display: none;
+  }
+}
+
+.table-no-footer {
+
+  .dataTables_info,
+  .dataTables_paginate {
+    display: none;
+  }
+}
+
+.dataTable {
+  border-bottom: 1px solid $gray-100;
+
+  thead {
+    >tr {
+      >th {
+        font-weight: $font-weight-normal;
+        font-size: .8rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #999;
+        border-bottom: 1px solid $gray-100;
+
+        &:focus,
+        &:active,
+        &:hover {
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
+.dataTables_wrapper {
+  @include media-breakpoint-down(sm) {
+    .row:first-child {
+      .col-sm-12 {
+        width: 50% !important;
+      }
+    }
+  }
+
+  .dataTables_length {
+    @include media-breakpoint-down(sm) {
+      text-align: left !important;
+    }
+
+    select {
+      margin: 0 .25rem;
+    }
+  }
+
+  .dataTables_filter {
+    @include media-breakpoint-down(sm) {
+      text-align: right !important;
+    }
+  }
+
+  .dataTables_info {
+    font-size: .8rem;
+    color: $gray-400;
+    margin-left: .75rem;
+  }
+}
+
+.page-item {
+  .page-link {
+    border: none;
+    font-size: .9rem;
+  }
+
+  &.active {
+    .page-link {
+      background-color: transparent;
+      color: $primary;
+      border-bottom: 2px solid $primary;
+    }
+  }
+}
+
+
+/* ==========================================================================
+  Table
+   ========================================================================== */
+
+.table-responsive {
+  @include media-breakpoint-down(xs) {
+    width: calc(100% + 1rem);
+  }
+}
+
+.table {
+
+  th,
+  td {
+    border-top: 1px solid $gray-100;
+    vertical-align: middle;
+
+    @include media-breakpoint-down(sm) {
+      font-size: .9rem;
+    }
+
+    a {
+      color: $body-color;
+      font-weight: $font-weight-bold;
+
+      &:focus,
+      &:active,
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.table-form {
+  .table {
+
+    th,
+    td {
+      padding: .75rem .375rem;
+    }
+
+    .btn-placeholder-add-del {
+      width: 100%;
+
+      .btn {
+        width: calc(50% - .25rem);
+        float: left;
+        padding: 0;
+        height: 42px;
+
+        &:first-child {
+          margin-right: .25rem;
+        }
+      }
+    }
+  }
+}
+
+.td-link {
+  cursor: pointer;
+  transition: $transition-base;
+
+  span {
+    transition: $transition-base;
+  }
+
+  &:focus,
+  &:active,
+  &:hover {
+    background: $gray-20;
+
+    span {
+      border-bottom: 1px dotted $body-color;
+    }
+  }
+}

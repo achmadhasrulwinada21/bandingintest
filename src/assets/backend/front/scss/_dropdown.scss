@@ -1,0 +1,49 @@
+/* Dropdown
+-------------------------------------------------- */
+.dropdown-menu {
+  animation-duration: .25s;
+  margin: 0;
+  border: 1px solid $gray-100;
+}
+
+// Make the :active state of .dropdown-item consistent with :focus state
+.dropdown-item {
+  padding: .5rem 1.25rem !important;
+
+  &.active,
+  &:active {
+    color: $dropdown-link-hover-color;
+    @include gradient-bg($dropdown-link-hover-bg);
+  }
+
+  .dropdown-icon {
+    width: 16px;
+    margin-right: .25rem;
+  }
+}
+
+// Replace default caret
+.dropdown-toggle {
+  padding-right: 2rem;
+  position: relative;
+
+  &:after {
+    font-family: "Font Awesome 5 Pro";
+    content: "\f107";
+    font-weight: 300;
+    border: none;
+    height: 8px;
+    line-height: 8px;
+    top: 50%;
+    margin-top: -3px;
+    right: 1rem;
+    position: absolute;
+    font-size: .9rem;
+  }
+
+  &[aria-expanded="true"] {
+    &:after {
+      content: "\f106";
+    }
+  }
+}

@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Text
+   ========================================================================== */
+
+/// Add custom small size from 70% - 90%
+.font-size-xs {font-size: 70%;}
+.font-size-sm {font-size: 80%;} // This one is the same as small / .small
+.font-size-md {font-size: 90%;}
+
+/// Add custom small size from 110% - 120%
+.font-size-lg {font-size: 110%;}
+.font-size-xl {font-size: 120%;}
+
+/// Custom text style
+.text-uppercase-custom {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+
+/// Text truncation
+.text-truncate-multiline {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
+.text-truncate-twoline {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; 
+}
