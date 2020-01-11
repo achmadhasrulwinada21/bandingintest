@@ -41,12 +41,12 @@ export class MenuService {
 
     }
 
-    getArticleById(id: string): Observable<Menu> {
+    getMenuById(id: string): Observable<Menu> {
         return this.apiService.get("/menu/" + id)
             .pipe(map(data => data));
     }
 
-    destroyArticle(id: string): Observable<Menu> {
+    destroyMenu(id: string): Observable<Menu> {
         return this.apiService.delete("/menu/" + id)
             .pipe(map(data => data));
     }

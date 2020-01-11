@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // Service
 import { MenuService } from './menu.service'
 
-//import Swal from 'sweetalert2/dist/sweetalert2.js';
+ import Swal from 'sweetalert2/dist/sweetalert2.js';
 // Shared Service
 import { SweetalertService } from '../../shared/service/sweetalert.service';
 import { DynamicScriptLoaderService } from '../../shared/service/dynamic-script.service';
@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
   edited: Boolean = false
 
   constructor(private fb: FormBuilder,
-              private menusService: MenuService,
+              private menuService: MenuService,
               private cd: ChangeDetectorRef,
               private sweetalertService: SweetalertService,
               private dynamicScriptLoader: DynamicScriptLoaderService) { }
@@ -33,6 +33,47 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.loadScripts()
     this.createForm()
+    let self = this;
+
+    $(document).on('click', '#editMenu', function(){
+      let id = $(this).data('id');
+      return self.menuService.getMenuById(id)
+                        .subscribe((data) => {
+                          self.menuForm.setValue({
+                            id               : data.id,
+                            menu_name        : data.menu_name,
+                            menu_link        : data.menu_link
+                          })
+                          self.edited = true
+                          self.cd.detectChanges();
+                        })
+            });
+
+    $(document).on('click', '#deleteMenu', function () {
+      let id = $(this).data('id');
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert this!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                  if (result.value) {
+                    Swal.fire(
+                      'Deleted!',
+                      'Your file has been deleted.',
+                      'success'
+                    )
+                    return self.menuService.destroyMenu(id)
+                      .subscribe(() => {
+                       //refresh datatable setelah data ini dihapus 
+                      $('#MenuDatatables').DataTable().ajax.reload(); 
+                      });
+                    }
+                })
+            });
   }
 
   private createForm() {
@@ -44,7 +85,12 @@ export class MenuComponent implements OnInit {
   }
 
   public createMenu(){
-
+    this.menuService.saveMenu(this.menuForm.value).subscribe(
+      (data) => {
+        this.sweetalertService.yourWorkHasBeenSaved('Berhasil Disimpan')
+        $('#MenuDatatables').DataTable().ajax.reload();
+        this.resetForm();
+      })
   }
 
   public resetForm() {
@@ -75,7 +121,7 @@ export class MenuComponent implements OnInit {
         ajax: {
           'type': 'GET',
           'url': self.dataUrl + '/list/menus',
-           'co ntentType': 'application/json',
+           'contentType': 'application/json',
         },
         'serverSide': true,
         'responsive': true,
