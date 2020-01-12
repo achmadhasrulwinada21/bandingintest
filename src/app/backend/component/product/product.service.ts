@@ -42,6 +42,18 @@ export class ProductService {
 
     }
 
+     updateProduct(id, data): Observable<Product>{
+    
+        let product = {
+      "title"               : data.title,
+      "description"         : data.description,
+      "image"               : data.image
+      }
+
+    return this.apiService.put("/product/" + id, product)
+                  .pipe(map(data => data))
+  }
+
     getProductById(id: string): Observable<Product> {
         return this.apiService.get("/product/" + id)
             .pipe(map(data => data));

@@ -33,7 +33,9 @@
             ],
             "scripts": [
               "src/assets/backend/modules/jquery.min.js",
-              "node_modules/jquery-ui-dist/jquery-ui.min.js"    
+              "node_modules/jquery-ui-dist/jquery-ui.min.js",
+              "src/assets/frontend/js/plugins/bootstrap/popper.min.js",
+              "src/assets/frontend/js/plugins/bootstrap/bootstrap.min.js"  
             ]
           },
           "configurations": {

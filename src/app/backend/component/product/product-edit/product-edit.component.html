@@ -1,0 +1,61 @@
+<div class="section-header">
+    <h1>Create Product</h1>
+</div>
+
+<form [formGroup]="editProduct" (ngSubmit)="updateProduct()">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" id="title" pInputText placeholder="Input Event Title here..." class="form-control"
+                    formControlName="title" [class.is-invalid]="title.invalid &&
+                                  title.touched">
+                <div *ngIf="title.invalid && title.touched">
+                    <small *ngIf="title.errors?.required" class="text-danger">Title Required</small>
+                    <small *ngIf="title.errors?.minlength" class="text-danger">Title Must Be Minimum 4 Character</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" (change)="selectFile($event)"
+                        accept="image/x-png,image/jpeg">
+                    <input type="text" formControlName="image" style="display: none;" />
+                    <label class="custom-file-label" for="image">Choose file</label>
+                </div>
+                <div class="progress mb-3 mt-2" *ngIf="progress.percentage > 0">
+                    <div class="progress-bar" role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                        {{progress.percentage}}%</div>
+                </div>
+                <img [src]="imgUrl" *ngIf="imgUrl != null" width="100%" height="60%" />
+                <!-- <div *ngIf="thumbnail.invalid && thumbnail.touched">
+        <small *ngIf="thumbnail.errors?.required" class="text-danger">Thumbnail Required</small>
+      </div>   -->
+            </div>
+             <div class="form-group">
+                    <label for="description">Description</label>
+                    <app-ngx-editor
+                        [placeholder]="'Enter Description here...'" 
+                        [spellcheck]="true" 
+                        formControlName="description"
+                        height="100px"></app-ngx-editor>
+                    <div *ngIf="description.invalid && description.touched">
+                    <small *ngIf="description.errors?.required" class="text-danger">description Required</small>
+                    <small *ngIf="description.errors?.minlength" class="text-danger">description Min 5 character</small>
+                    </div>  
+                </div>
+        </div> <!-- end col md 8-->
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-icon icon-right btn-primary" [disabled]="!editProduct.valid">
+                <i class="far fa-save"></i>
+                Save</button>
+            &nbsp;
+
+            <a routerLink="/product" class="btn btn-icon icon-right btn-light"><i class="fas fa-arrow-circle-left"></i>
+                Cancel</a>
+        </div>
+    </div>
+</form>

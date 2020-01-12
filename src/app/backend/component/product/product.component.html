@@ -75,17 +75,9 @@
                         <div class="col-md-12">
                             <button class="btn btn-primary" 
                                     type="submit"
-                                    *ngIf="!edited"
                                     [disabled]="!productForm.valid">
                                     <i class="far fa-save"></i>
                                     save</button>
-
-                            <button class="btn btn-primary" 
-                                    type="submit"
-                                    *ngIf="edited"
-                                    [disabled]="!productForm.valid">
-                                    <i class="far fa-save"></i>
-                                    Update</button>  
                             &nbsp;
                             <a (click)="resetForm()"  class="btn btn-icon icon-right btn-light">
                             <i class="fas fa-backspace"></i>Cancel</a>

@@ -1,12 +1,13 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
+import { Router, ActivatedRoute } from "@angular/router";
 // Service
 import { ProductService } from './product.service'
 import { UploadFileService } from '../../shared/service/upload-file.service';
 import { SweetalertService } from '../../shared/service/sweetalert.service';
 import { DynamicScriptLoaderService } from '../../shared/service/dynamic-script.service';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 // Environtment
 import { environment } from 'src/environments/environment';
 
@@ -30,14 +31,48 @@ export class ProductComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private productService: ProductService,
               private cd: ChangeDetectorRef,
+              private route: ActivatedRoute,
+              private router: Router,
               private sweetalertService: SweetalertService,
               private dynamicScriptLoader: DynamicScriptLoaderService,
-              private uploadFileService: UploadFileService) { }
+              private uploadFileService: UploadFileService,
+              private zone: NgZone) { }
 
   ngOnInit() {
     this.loadScripts()
     this.createForm()
     let self = this;
+
+    $(document).on('click', '#editProduct', function(){
+      let id = $(this).data('id');
+      self.zone.run(() => self.router.navigate([ self.prefix +'/product/edit/' + id]))
+    });
+
+    $(document).on('click', '#deleteProduct', function(){
+        let id = $(this).data('id');
+          Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.value) {
+              Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+              )
+            return   self.productService.destroyProduct(id)
+                      .subscribe(() => {
+                        $('#ProductDatatables').DataTable().ajax.reload();
+                      });
+            }
+          })
+    });
+
   }
 
   

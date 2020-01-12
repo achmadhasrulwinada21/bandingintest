@@ -9,7 +9,7 @@ import { ProductRoutingModule } from "./product-routing.module";
 // Component
 import { ProductComponent } from "./product.component";
 import { DataTablesModule } from 'angular-datatables';
-
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { NgxEditorModule } from 'ngx-editor';
@@ -25,7 +25,8 @@ import { NgxEditorModule } from 'ngx-editor';
         NgxEditorModule
     ],
     declarations: [
-        ProductComponent
+        ProductComponent,
+        ProductEditComponent
     ]
 })
 export class ProductModule { }
