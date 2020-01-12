@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="/assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<div class="section-header">
+    <h1>Product Management</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a routeLink="/">Dashboard</a></div>
+        <div class="breadcrumb-item"><a>Product management</a></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Product management</h4>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="productForm" (ngSubmit)="createProduct()">
+                        <input type="text" formControlName="id" class="hilang" />
+                         <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="title">Title<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="title" 
+                                     class="form-control" 
+                                     formControlName="title"
+                                     placeholder="fill title heree"
+                                     [class.is-invalid]="title.invalid &&
+                                              title.touched">   
+                            <div *ngIf="title.invalid && title.touched">
+                            <small *ngIf="title.errors?.required" class="text-danger">title Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                 <div class="row">
+                <div class="col-md-8">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <app-ngx-editor
+                        [placeholder]="'Enter Description here...'" 
+                        [spellcheck]="true" 
+                        formControlName="description"
+                        height="100px"></app-ngx-editor>
+                    <div *ngIf="description.invalid && description.touched">
+                    <small *ngIf="description.errors?.required" class="text-danger">description Required</small>
+                    <small *ngIf="description.errors?.minlength" class="text-danger">description Min 5 character</small>
+                    </div>  
+                </div>
+                </div>
+              </div>
+              <div class="form-group">
+                    <label for="image">Image</label>
+                        <div class="custom-file">
+                        <input  type="file" 
+                                class="custom-file-input" 
+                                id="image" 
+                                (change)="selectFile($event)">
+                        <input type="text" formControlName="image" style="display: none;"/>
+                        <label class="custom-file-label" for="image">Choose file</label>
+                        </div>  
+                        <div class="progress mb-3 mt-2" *ngIf="progress.percentage > 0">
+                        <div  class="progress-bar" 
+                                role="progressbar" 
+                                attr.aria-valuenow="{{progress.percentage}}"
+                                aria-valuemin="0" aria-valuemax="100"
+                                [ngStyle]="{width:progress.percentage+'%'}">{{progress.percentage}}%</div>
+                        </div>
+                        <img [src]="imgUrl" *ngIf="imgUrl != null" width="100%" height="60%" />
+                    </div>
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary" 
+                                    type="submit"
+                                    *ngIf="!edited"
+                                    [disabled]="!productForm.valid">
+                                    <i class="far fa-save"></i>
+                                    save</button>
+
+                            <button class="btn btn-primary" 
+                                    type="submit"
+                                    *ngIf="edited"
+                                    [disabled]="!productForm.valid">
+                                    <i class="far fa-save"></i>
+                                    Update</button>  
+                            &nbsp;
+                            <a (click)="resetForm()"  class="btn btn-icon icon-right btn-light">
+                            <i class="fas fa-backspace"></i>Cancel</a>
+                    </div>
+                    </div>
+                    </form>
+                    <div class="row mt-5">
+                        <div class="table-responsive">
+                            <table id="ProductDatatables" class="table table-striped dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

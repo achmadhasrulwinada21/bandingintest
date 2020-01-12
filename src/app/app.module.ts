@@ -12,7 +12,7 @@ import { ApiService } from './backend/shared/service/api.service';
 import { XRequestService } from './backend/shared/service/xrequest.service';
 import { DynamicScriptLoaderService } from './backend/shared/service/dynamic-script.service';
 import { SlugifyPipe } from './backend/shared/pipe/slugify.pipe';
-
+import { ImageUploadComponent } from './backend/shared/component/image-upload/image-upload.component';
 import { CookieService } from 'ngx-cookie-service';
 import { WINDOW_PROVIDERS } from "./backend/shared/service/window.service";
 

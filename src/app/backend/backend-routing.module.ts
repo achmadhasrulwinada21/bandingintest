@@ -9,15 +9,16 @@ import { BackendComponent } from './backend.component';
 
 const routes: Routes = 
     [ 
-        { path:'',
-            component:BackendComponent,
-            children: [
-                { path: '',                 redirectTo: 'dashboard' },
-                { path: 'dashboard',        loadChildren: "./component/dashboard/dashboard.module#DashboardModule" },
-                { path: 'menu',             loadChildren: "./component/menu/menu.module#MenuModule" },
+    { path:'',
+        component:BackendComponent,
+        children: [
+            { path: '',                 redirectTo: 'dashboard' },
+            { path: 'dashboard',        loadChildren: "./component/dashboard/dashboard.module#DashboardModule" },
+            { path: 'menu',             loadChildren: "./component/menu/menu.module#MenuModule" },
+            { path: 'product',          loadChildren: "./component/product/product.module#ProductModule" },
 
-            ]
-        }
+        ]
+    }
     ];
 
 @NgModule({

@@ -8,34 +8,15 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Project</a>
+            <li class="nav-item" *ngFor="let menu of ListMenu" onfocus="Active">
+                <a class="nav-link" href="{{ menu.menu_link }}" style="font-weight: 800;">{{menu.menu_name}}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Portopolio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Landing <fa-icon [icon]="faCartPlus"></fa-icon></a>
+                <fa-icon [icon]="faCartPlus"></fa-icon>
             </li>
         </ul>
     </div>
 </nav>
-
 <!---end navbar-->
 <!--start jumbroton-->
 
@@ -177,8 +158,8 @@
 <footer  class="container-fluid constructor-footer">
     <div class="container py-5">
         <div class="row">
-            <div class="col-md-4">
-               <span style="font-weight: bold">Divi Construction Company</span>
+            <div class="col-md-6">
+               <span style="font-weight: bold">Construction Company Home</span>
                 <ul class="list-unstyled mt-md-3 mt-5">
                     <p style="font-weight: bold;margin:4px;">Social Media</p>
                      <li class="social">
@@ -188,40 +169,19 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <div class="footerList">
-                    <ul>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Home</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none" >About</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="footerList">
-                    <ul>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Project</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none" >Blog</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Demo</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="footerList">
-                    <ul>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Portofolio</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none" >Services</a></li>
-                        <li style="font-weight: bold">
-                        <a href="#" class="text-white" style="text-decoration:none">Landing</a></li>
-                    </ul>
+                <ul>
+                    <span style="font-weight: bold">Divi Construction Company</span>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-address-book"></i>&nbsp;Duri Kepa,Jakarta</a></li>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-phone">&nbsp;021-7345628</i></a></li>
+                    <li style="font-weight: bold">
+                        <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-fax">&nbsp;021-7345627</i></a></li>
+                    <li style="font-weight: bold">
+                      <a href="#" class="text-white" style="text-decoration:none"><i class="fa fa-envelope">&nbsp;admin@mail.com</i></a></li>
+                </ul>
                 </div>
             </div>
         </div>
