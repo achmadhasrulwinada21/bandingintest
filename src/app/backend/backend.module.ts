@@ -34,7 +34,7 @@ import { NavigateTopComponent } from './layout/navigate-top/navigate-top.compone
         MainComponent,
         SidebarComponent,
         NavigateTopComponent,
-                   
+                                 
     ],
     providers: []
 })
