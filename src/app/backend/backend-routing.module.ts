@@ -17,7 +17,7 @@ const routes: Routes =
             { path: 'menu',             loadChildren: "./component/menu/menu.module#MenuModule" },
             { path: 'product',          loadChildren: "./component/product/product.module#ProductModule" },
             { path: 'banner', loadChildren: "./component/banner/banner.module#BannerModule" },
-
+            { path: 'setting', loadChildren: "./component/setting/setting.module#SettingModule" },
         ]
     }
     ];

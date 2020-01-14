@@ -1,1 +1,153 @@
-<p>setting works!</p>
+<div class="section-header">
+    <h1>Global Setting</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a routeLink="/">Dashboard</a></div>
+        <div class="breadcrumb-item"><a>Global Setting</a></div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="col-md-12">
+        <pre>
+      {{  settingForm.value | json  }}
+    </pre>
+    </div>
+</div> -->
+
+<form [formGroup]="settingForm" (ngSubmit)="settingApply()">
+<div class="col-12">
+    <div class="card">
+        <div class="card-header">
+            <h4>Setting Information</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <input type="text" formControlName="id" class="hilang" />
+                    <input type="hidden" formControlName="code" id="code">
+                    <div class="form-group">
+                        <label for="website_name">Site Name</label>
+                        <input  type="text" 
+                          id="website_name" 
+                          pInputText 
+                          placeholder="Insert site name here..." 
+                          class="form-control" 
+                          formControlName="website_name">   
+                    </div>
+                     <div class="form-group">
+                        <label for="address">Address</label>
+                        <textarea 
+                                id="address" 
+                                rows="10" 
+                                cols="30" 
+                                class="form-control"
+                                pInputTextarea 
+                                autoResize="autoResize" 
+                                placeholder="Insert Address heree"
+                                formControlName="address"></textarea> 
+                     </div>
+                     <div class="form-group">
+                        <label for="city">City</label>
+                        <input  type="text" 
+                          id="city" 
+                          pInputText 
+                          placeholder="Insert city here..." 
+                          class="form-control" 
+                          formControlName="city">   
+                    </div>
+                    <div class="form-group">
+                        <label for="no_telp">No. Telp</label>
+                        <input  type="text" 
+                          id="no_telp" 
+                          pInputText 
+                          placeholder="Insert No. Telp here..." 
+                          class="form-control" 
+                          formControlName="no_telp">   
+                    </div>
+                    <div class="form-group">
+                        <label for="no_fax">No. Fax</label>
+                        <input  type="text" 
+                          id="no_fax" 
+                          pInputText 
+                          placeholder="Insert No. Fax here..." 
+                          class="form-control" 
+                          formControlName="no_fax">   
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input  type="text" 
+                          id="email" 
+                          pInputText 
+                          placeholder="Insert email here..." 
+                          class="form-control" 
+                          formControlName="email">   
+                    </div>
+                     <div class="form-group">
+                        <label for="logo_fb">Logo Facebook</label>
+                            <div class="custom-file">
+                                <input  type="file" 
+                                        class="custom-file-input" 
+                                        id="logo_fb" 
+                                        (change)="selectFile($event, 'logo_fb')"
+                                        accept="image/x-png,image/jpeg">
+                                <input type="text" formControlName="logo_fb" style="display: none;"/>
+                                <label class="custom-file-label" for="logo_fb">Choose file</label>
+                            </div>  
+                  <img [src]="logoFbUrl" *ngIf="logoFbUrl != null" width="50px" height="50px" />
+              </div>
+              <div class="form-group">
+                        <label for="logo_twitter">Logo Twitter</label>
+                            <div class="custom-file">
+                                <input  type="file" 
+                                        class="custom-file-input" 
+                                        id="logo_twitter" 
+                                        (change)="selectFile($event, 'logo_twitter')"
+                                        accept="image/x-png,image/jpeg">
+                                <input type="text" formControlName="logo_twitter" style="display: none;"/>
+                                <label class="custom-file-label" for="logo_twitter">Choose file</label>
+                            </div>  
+                  <img [src]="logoTwitterUrl" *ngIf="logoTwitterUrl != null" width="50px" height="50px" />
+              </div>
+              <div class="form-group">
+                        <label for="logo_instagram">Logo Instagram</label>
+                            <div class="custom-file">
+                                <input  type="file" 
+                                        class="custom-file-input" 
+                                        id="logo_instagram" 
+                                        (change)="selectFile($event, 'logo_instagram')"
+                                        accept="image/x-png,image/jpeg">
+                                <input type="text" formControlName="logo_instagram" style="display: none;"/>
+                                <label class="custom-file-label" for="logo_instagram">Choose file</label>
+                            </div>  
+                  <img [src]="logoInstagramUrl" *ngIf="logoInstagramUrl != null" width="50px" height="50px" />
+              </div>
+                     <div class="form-group">
+                        <label for="copyright">Copyright</label>
+                        <textarea 
+                                id="copyright" 
+                                rows="10" 
+                                cols="30" 
+                                class="form-control"
+                                pInputTextarea 
+                                autoResize="autoResize" 
+                                placeholder="Insert Copyright heree"
+                                formControlName="copyright"></textarea> 
+                     </div>
+                </div>
+            </div>
+             <div class="row mt-5">
+                <div class="col-md-4">
+                    <button
+                      type="submit" 
+                      class="btn btn-icon icon-right btn-primary"
+                      [disabled]="!settingForm.valid">
+                      <i class="far fa-save"></i>Save</button>
+                 &nbsp;
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

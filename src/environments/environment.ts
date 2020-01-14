@@ -4,7 +4,7 @@
 
 export const environment = {
   BASE_URL: 'http://localhost:4200',
-  prefix: '',
+  prefix: 'backend',
   assets_url: 'http://localhost:4200/',
   production: false,
   api_url: 'http://localhost:8181/api',

@@ -3,13 +3,17 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { FrontendComponent } from './frontend/frontend.component'
 
+// Environtment
+import { environment } from 'src/environments/environment';
+
+
 const routes: Routes = [
   {
-    path:'frontend',
+    path:'',
     component: FrontendComponent
   },
   {
-    path: '',
+    path: environment.prefix,
     loadChildren: "./backend/backend.module#BackendModule"
   }
 ];
