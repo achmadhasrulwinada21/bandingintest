@@ -67,7 +67,7 @@ export class SettingComponent implements OnInit {
 
              if (data_setting) {
                   this.settingForm.patchValue({
-                  id:data.id,  
+                 id:data.id,  
                  website_name: data_setting.website_name,
                  address: data_setting.address,
                  city: data_setting.city,

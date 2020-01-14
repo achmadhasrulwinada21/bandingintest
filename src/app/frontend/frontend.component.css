@@ -3,7 +3,6 @@
       width: 100%;
       min-height:500px;
       height: 100%;
-      background-image: url('../../assets/img/construction2.jpg')
   }
  
   .constructor-footer{
@@ -60,7 +59,7 @@
 }
 
 .number {
-    font-size: 3.2rem;
+    font-size: 2rem;
     font-weight: 900;
     color: #fff;
 }
@@ -69,4 +68,8 @@
     font-size: 1rem;
     display: block;
     color: rgba(255, 255, 255, 0.7);
+}
+
+.lead {
+    line-height: 30px;
 }
