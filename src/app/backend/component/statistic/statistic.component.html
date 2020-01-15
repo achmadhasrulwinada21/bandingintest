@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="/assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<div class="section-header">
+    <h1>Statistic Management</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a routeLink="/">Dashboard</a></div>
+        <div class="breadcrumb-item"><a>Statistic management</a></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <pre>
+      {{ statisticForm.value | json  }}
+    </pre>
+    </div>
+</div>
+<div class="section">
+    <div class="row">
+        <div class="col-md-12">
+          <form [formGroup]="statisticForm" (ngSubmit)="saveStatistic()">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Statistic management</h4>
+                </div>
+                <div class="card-body">
+                   <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="title">Title<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="title" 
+                                     class="form-control" 
+                                     formControlName="title"
+                                     placeholder="fill title heree"
+                                     [class.is-invalid]="title.invalid &&
+                                              title.touched">   
+                            <div *ngIf="title.invalid && title.touched">
+                            <small *ngIf="title.errors?.required" class="text-danger">title Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                  <div class="row">
+                    <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <app-ngx-editor
+                            [placeholder]="'Enter Description here...'" 
+                            [spellcheck]="true" 
+                            formControlName="description"
+                            height="100px"></app-ngx-editor>
+                        <div *ngIf="description.invalid && description.touched">
+                        <small *ngIf="description.errors?.required" class="text-danger">description Required</small>
+                        <small *ngIf="description.errors?.minlength" class="text-danger">description Min 5 character</small>
+                        </div>  
+                    </div>
+                    </div>
+                 </div>
+                   <div class="row">
+                     <div class="col-12 col-sm-12 col-lg-12">
+                      <table>
+                        <thead>
+                          <th>No</th>
+                          <th>Title Statistic</th>
+                          <th>Data Statistic</th>
+                        </thead>
+                        <tbody formArrayName="statistics">
+                            <tr *ngFor="let d of t.controls; let i = index " [formGroupName]="i">
+                              <td>{{ i + 1 }}</td>
+                              <td><input formControlName="statistic_title" 
+                                         type="text" 
+                                         class="form-control"></td>
+                              <td><input formControlName="statistic_data" 
+                                         type="text"
+                                         class="form-control"></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                     </div>
+                      <div class="col-md-1" style="margin: 10px;">
+                        <button type="button" (click)="addRow()" class="btn btn-primary">Add Row</button>
+                      </div>
+                      <div class="col-md-1" style="margin: 10px;">
+                        <button type="button" (click)="removeRow()" class="btn btn-danger">Remove Row</button>
+                      </div>
+                   </div>
+                    <div class="row text-right">
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-icon icon-right btn-primary">
+                          <i class="far fa-save"></i>
+                          Save</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="row mt-5">
+                        <div class="table-responsive">
+                            <table id="StatisticDatatables" class="table table-striped dataTable no-footer">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</div>

@@ -33,8 +33,7 @@ import { NavigateTopComponent } from './layout/navigate-top/navigate-top.compone
         FooterComponent,
         MainComponent,
         SidebarComponent,
-        NavigateTopComponent,
-                                 
+        NavigateTopComponent,                                
     ],
     providers: []
 })

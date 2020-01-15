@@ -18,6 +18,7 @@ const routes: Routes =
             { path: 'product',          loadChildren: "./component/product/product.module#ProductModule" },
             { path: 'banner', loadChildren: "./component/banner/banner.module#BannerModule" },
             { path: 'setting', loadChildren: "./component/setting/setting.module#SettingModule" },
+            { path: 'statistic', loadChildren: "./component/statistic/statistic.module#StatisticModule" },
         ]
     }
     ];
