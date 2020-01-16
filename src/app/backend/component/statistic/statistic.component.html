@@ -7,13 +7,13 @@
         <div class="breadcrumb-item"><a>Statistic management</a></div>
     </div>
 </div>
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-12">
         <pre>
       {{ statisticForm.value | json  }}
     </pre>
     </div>
-</div>
+</div> -->
 <div class="section">
     <div class="row">
         <div class="col-md-12">
@@ -70,10 +70,10 @@
                               <td>{{ i + 1 }}</td>
                               <td><input formControlName="statistic_title" 
                                          type="text" 
-                                         class="form-control"></td>
+                                         class="form-control" required></td>
                               <td><input formControlName="statistic_data" 
                                          type="text"
-                                         class="form-control"></td>
+                                         class="form-control" required></td>
                             </tr>
                         </tbody>
                       </table>
@@ -87,9 +87,17 @@
                    </div>
                     <div class="row text-right">
                       <div class="col-md-12">
-                        <button type="submit" class="btn btn-icon icon-right btn-primary">
+                        <button type="submit" class="btn btn-icon icon-right btn-primary"
+                                *ngIf="!edited" 
+                                [disabled]="!statisticForm.valid">
                           <i class="far fa-save"></i>
                           Save</button>
+
+                          <button type="submit" class="btn btn-icon icon-right btn-primary"
+                                *ngIf="edited" 
+                                [disabled]="!statisticForm.valid">
+                          <i class="far fa-save"></i>
+                          Update</button>
                       </div>
                     </div>
                 </div>
@@ -103,6 +111,7 @@
                                         <th>ID</th>
                                         <th>Title</th>
                                         <th>Description</th>
+                                        <th>Statistic</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

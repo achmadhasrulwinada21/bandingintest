@@ -17,10 +17,13 @@ export class StatisticComponent implements OnInit {
 
   statisticForm: FormGroup
   StatisticData = []
+  ListStatistic = []
+  ListStatisticSelected = null
   dataUrl: String = environment.api_url
   prefix: String = environment.prefix
-  
+  edited: Boolean = false
 
+  
   constructor(private fb: FormBuilder,
               private statisticService:StatisticService,
               private route: ActivatedRoute,
@@ -30,9 +33,58 @@ export class StatisticComponent implements OnInit {
               private dynamicScriptLoader: DynamicScriptLoaderService,) { }
 
   ngOnInit() {
+    this.loadScripts()
     this.createForm()
     this.addRow()
-    this.loadScripts()    
+    let self = this;
+    
+     $(document).on('click', '#editStatistic', function(){
+      let id = $(this).data('id');
+      
+       return self.statisticService.getStatisticById(id)
+                        .subscribe((data) => {
+                          //parsing dari database dari string ke json
+                           let json_array = JSON.parse(data.statistic.toString())
+                           //bersihkan form sebelum ditambahin
+                          self.clearFormArray()
+                          self.loadRow(json_array)
+                            //
+
+                          self.statisticForm.patchValue({
+                            id               : data.id,
+                            title            : data.title,
+                            description      : data.description
+                          })
+                          self.edited = true
+                          self.cd.detectChanges();
+                        })
+            });
+
+    $(document).on('click', '#deleteStatistic', function () {
+      let id = $(this).data('id');
+                Swal.fire({
+                  title: 'Are you sure?',
+                  text: "You won't be able to revert tis!",
+                  type: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#3085d6',
+                  cancelButtonColor: '#d33',
+                  confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                      Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                      )
+                  return self.statisticService.destroyStatistic(id)
+                    .subscribe(() => {
+                    //refresh datatable setelah data ini dihapus 
+                    $('#StatisticDatatables').DataTable().ajax.reload(); 
+                    });
+                  }
+                })
+            });
     }
 
    
@@ -45,7 +97,28 @@ export class StatisticComponent implements OnInit {
     })
   }
 
-  public resetForm() {
+
+
+  private loadRow(data = null) { 
+    if (data != null && data.length > 0) {
+      data.map((data, i) => {
+        this.t.push(this.fb.group({
+          statistic_title: [data.statistic_title],
+          statistic_data: [data.statistic_data]
+        }));
+
+        this.cd.detectChanges()
+      })
+    } else {
+      this.t.push(this.fb.group({
+        statistic_title: [''],
+        statistic_data: ['']
+      }));
+    }
+
+  }
+
+    public resetForm() {
     this.id.reset()
     this.title.reset()
     this.description.reset()
@@ -69,22 +142,30 @@ export class StatisticComponent implements OnInit {
               this.sweetalertService.yourWorkHasBeenSaved('Berhasil Disimpan')
               $('#StatisticDatatables').DataTable().ajax.reload();
               this.resetForm()
+              this.clearFormArray()
+              this.addRow()
               this.router.navigate([this.prefix + '/statistic'])
           })
         }
   
   public addRow() {
     this.t.push(this.fb.group({
-    statistic_title:[''],
-    statistic_data:['']
+    statistic_title :['', [Validators.required]],
+    statistic_data:['',[Validators.required]]
     }));
   }
-
+ 
   public removeRow() {
     let i = this.t.length
      if (i > 1){
       this.t.removeAt(i - 1);
      }
+  }
+
+  public clearFormArray() {
+    const arr = <FormArray>this.statisticForm.controls.statistics;
+    arr.controls = [];
+
   }
 
   get f() { return this.statisticForm.controls }
@@ -110,6 +191,19 @@ export class StatisticComponent implements OnInit {
                 }, {
                 data: 'description'
                 },{
+                  data : 'statistic',
+                  render: function (data) {
+                    var html = ''  
+                    var json_array = JSON.parse(data)
+                    html += '<ul>'
+                    json_array.forEach(json => {
+                     html += '<li>' + json.statistic_title + ' : ' + json.statistic_data + '</li>'
+                    })
+                   html += '</ul>'
+                    return `${html}`;
+                  },
+                },
+                {
                   data: null,
                   width: '20%',
                   searchable: false,

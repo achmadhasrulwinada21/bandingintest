@@ -32,13 +32,18 @@ export class StatisticService {
     saveStatistic(statistic_data): Observable<Statistic> {
 
         let data_json = {
+            "id":statistic_data.id,
             "title": statistic_data.title,
             "description": statistic_data.description,
             "statistic": JSON.stringify(statistic_data.statistics)
         }
-    
+        if(data_json.id){
+            return this.apiService.put("/statistic/" + data_json.id, data_json)
+                .pipe(map(data => data));
+        }else{
         return this.apiService.post("/statistic", data_json)
                 .pipe(map(data => data));
+        }
       
     }
 
