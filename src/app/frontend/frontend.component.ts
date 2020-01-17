@@ -8,6 +8,7 @@ import { MenuService } from '../backend/component/menu/menu.service'
 import { SettingService } from '../backend/component/setting/setting.service'
 import { BannerService } from '../backend/component/banner/banner.service'
 import { ProductService } from '../backend/component/product/product.service'
+import { StatisticService } from '../backend/component/statistic/statistic.service'
 // Environtment
 import { environment } from 'src/environments/environment';
 
@@ -15,6 +16,7 @@ import { environment } from 'src/environments/environment';
 import { Setting }     from '../backend/component/setting/setting'
 import { Banner }      from '../backend/component/banner/banner'
 import { Product }             from '../backend/component/product/product'
+import { Statistic } from '../backend/component/statistic/statistic'
 
 @Component({
   selector: 'app-frontend',
@@ -35,7 +37,8 @@ export class FrontendComponent implements OnInit {
   constructor( private menuService: MenuService,
                private settingService: SettingService,
                private bannerService: BannerService,
-               private productService: ProductService ){ 
+               private productService: ProductService,
+               private statisticService: StatisticService ){ 
    
   }
 
@@ -44,6 +47,7 @@ export class FrontendComponent implements OnInit {
      this.initSetting()
      this.initBanner()
      this.initProduct()
+     this.initStatistic()
   }
 
   menu_name : String = null
@@ -51,8 +55,9 @@ export class FrontendComponent implements OnInit {
   setting: Setting
   banner:  Banner
   Listproduct: Product
-
-
+  ListStatistic: Statistic 
+  JsonStatisctic: Statistic
+  
   public getListMenu(){
     this.menuService.getAll().subscribe((data) => {
       this.ListMenu = data
@@ -65,9 +70,22 @@ export class FrontendComponent implements OnInit {
        })
     }
 
+    private initStatistic(){
+
+      this.statisticService.getAll().subscribe((data_statisctic)=>{
+          return this.statisticService.getStatisticById(data_statisctic[0].id).subscribe((data) => {
+              this.ListStatistic = data
+                  console.log(JSON.parse(data.statistic.toString()))
+            this.JsonStatisctic = JSON.parse(data.statistic.toString())
+                //var json_array = JSON.parse(data)
+          })
+                
+        })
+    }
+
     private initBanner(){
       this.bannerService.getAll().subscribe((data_banner) => {
-          console.log(data_banner[0].id)
+         // console.log(data_banner[0].id)
         return this.bannerService.getBannerById(data_banner[0].id).subscribe((data) => {
             this.banner = data
             if(data.image){
