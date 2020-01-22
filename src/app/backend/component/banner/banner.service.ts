@@ -30,6 +30,7 @@ export class BannerService {
             title: data.title,
             description: data.description,
             image: data.image,
+            category:data.category,
             button_link: data.button_link,
             button_name: data.button_name,
         }
@@ -51,6 +52,7 @@ export class BannerService {
             "description": data.description,
             "button_link": data.button_link,
             "button_name": data.button_name,
+            "category":data.category,
             "image": data.image
         }
 
@@ -60,6 +62,11 @@ export class BannerService {
 
     getBannerById(id: string): Observable<Banner> {
         return this.apiService.get("/banner/" + id)
+            .pipe(map(data => data));
+    }
+
+    getBannerByCategory(category: string): Observable<Banner> {
+        return this.apiService.get("/banners/" + category)
             .pipe(map(data => data));
     }
 

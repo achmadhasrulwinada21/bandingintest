@@ -79,6 +79,7 @@ export class BannerEditComponent implements OnInit {
             description: data.description,
             button_link: data.button_link,
             button_name: data.button_name,
+            category: data.category,
             image: data.image,
           })
 
@@ -93,6 +94,7 @@ export class BannerEditComponent implements OnInit {
         description: ['', [Validators.required]],
         button_link: ['', [Validators.required]],
         button_name: ['', [Validators.required]],
+        category: ['', [Validators.required]],
         image: ['', [Validators.required]],
     });
   }
@@ -112,5 +114,8 @@ export class BannerEditComponent implements OnInit {
   get image() {
             return this.editBanner.get('image')
           }
+  get category() {
+    return this.editBanner.get('category')
+         }
 
 }

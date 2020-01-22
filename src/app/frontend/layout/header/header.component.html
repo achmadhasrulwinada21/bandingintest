@@ -1,0 +1,20 @@
+<!--start navbar-->
+<nav class="navbar navbar-expand-lg navbar-light" style="position: inherit;background-color: #ffffff;">
+    <a class="navbar-brand" routerLink="/" style="font-weight: bold;color: black;">{{ setting?.website_name }} Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item" *ngFor="let menu of ListMenu" onfocus="Active">
+                <a class="nav-link" routerLink="/{{ menu.menu_link }}" style="font-weight: 800;">{{menu.menu_name}}</a>
+            </li>
+            <li class="nav-item">
+                <!-- <fa-icon [icon]="faCartPlus"></fa-icon> -->
+            </li>
+        </ul>
+    </div>
+</nav>
+<!---end navbar-->

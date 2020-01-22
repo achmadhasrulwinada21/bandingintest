@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="/assets/backend/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+
+<div class="section-header">
+    <h1>Rental Management</h1>
+    <div class="section-header-breadcrumb">
+        <div class="breadcrumb-item active"><a routeLink="/">Dashboard</a></div>
+        <div class="breadcrumb-item"><a>Rental management</a></div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="row">
+        <div class="col-md-12">
+            <form [formGroup]="rentalForm" (ngSubmit)="saveRental()">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Rental management</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="name_equipment">Equiptment<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="name_equipment" 
+                                     class="form-control" 
+                                     formControlName="name_equipment"
+                                     placeholder="fill name_equipment heree"
+                                     [class.is-invalid]="name_equipment.invalid &&
+                                              name_equipment.touched">   
+                            <div *ngIf="name_equipment.invalid && name_equipment.touched">
+                            <small *ngIf="name_equipment.errors?.required" class="text-danger">Equiptment Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="form-group">
+                        <label for="image">Logo Equiptment</label>
+                            <div class="custom-file">
+                                <input  type="file" 
+                                        class="custom-file-input" 
+                                        id="image" 
+                                        (change)="selectFile($event, 'image')"
+                                        accept="image/x-png,image/jpeg">
+                                <input type="text" formControlName="image" style="display: none;"/>
+                                <label class="custom-file-label" for="image">Choose file</label>
+                            </div>  
+                            <img [src]="logoImageUrl" *ngIf="logoImageUrl != null" width="50px" height="50px" />
+                        </div>
+                        </div>
+                    </div>
+                     <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="harga_awal">Harga Awal<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="harga_awal" 
+                                     class="form-control" 
+                                     formControlName="harga_awal"
+                                     placeholder="fill harga_awal heree"
+                                     [class.is-invalid]="harga_awal.invalid &&
+                                              harga_awal.touched">   
+                            <div *ngIf="harga_awal.invalid && harga_awal.touched">
+                            <small *ngIf="harga_awal.errors?.required" class="text-danger">Harga Awal Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                <div class="row">
+                           <div class="col-md-8">
+                             <div class="form-group">
+                              <label for="harga_akhir">Harga Akhir<sup class="text-danger">*</sup>
+                              </label>
+                             <input  type="text" 
+                                     id="harga_akhir" 
+                                     class="form-control" 
+                                     formControlName="harga_akhir"
+                                     placeholder="fill harga_akhir heree"
+                                     [class.is-invalid]="harga_akhir.invalid &&
+                                              harga_akhir.touched">   
+                            <div *ngIf="harga_akhir.invalid && harga_akhir.touched">
+                            <small *ngIf="harga_akhir.errors?.required" class="text-danger">Harga Akhir Required</small>
+                        </div>  
+                     </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-lg-12">
+                        <table style="width:60%">
+                            <thead>
+                            <th>No</th>
+                            <th>Rules</th>
+                            </thead>
+                            <tbody formArrayName="rental_ruless">
+                                <tr *ngFor="let d of t.controls; let i = index " [formGroupName]="i">
+                                <td>{{ i + 1 }}</td>
+                                <td><input formControlName="description_rule" 
+                                         type="text" 
+                                         class="form-control" required></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-1" style="margin: 10px;">
+                        <button type="button" (click)="addRow()" class="btn btn-primary">Add Row</button>
+                      </div>
+                      <div class="col-md-1" style="margin: 10px;">
+                        <button type="button" (click)="removeRow()" class="btn btn-danger">Remove Row</button>
+                      </div>
+                </div>
+                 <div class="row text-right">
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-icon icon-right btn-primary"
+                                *ngIf="!edited" 
+                                [disabled]="!rentalForm.valid">
+                          <i class="far fa-save"></i>
+                          Save</button>
+
+                          <button type="submit" class="btn btn-icon icon-right btn-primary"
+                                *ngIf="edited" 
+                                [disabled]="!rentalForm.valid">
+                          <i class="far fa-save"></i>
+                          Update</button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+            <div class="row mt-5">
+                <div class="table-responsive">
+                    <table id="RentalDatatables" class="table table-striped dataTable no-footer" style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Equiptment</th>
+                                <th>Harga Awal</th>
+                                <th>Harga Akhir</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

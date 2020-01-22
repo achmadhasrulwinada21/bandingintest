@@ -19,6 +19,9 @@ const routes: Routes =
             { path: 'banner', loadChildren: "./component/banner/banner.module#BannerModule" },
             { path: 'setting', loadChildren: "./component/setting/setting.module#SettingModule" },
             { path: 'statistic', loadChildren: "./component/statistic/statistic.module#StatisticModule" },
+            { path: 'form-contact', loadChildren: "./component/form-contact/form-contact.module#FormContactModule" },
+            { path: 'rental', loadChildren: "./component/rental/rental.module#RentalModule" },
+            { path: 'detail-rent', loadChildren: "./component/detail-rent/detail-rent.module#DetailRentModule" },
         ]
     }
     ];

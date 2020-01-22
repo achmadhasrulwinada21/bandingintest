@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 const routes: Routes = [
   {
     path:'',
-    component: FrontendComponent
+    loadChildren: "./frontend/frontend.module#FrontendModule"
   },
   {
     path: environment.prefix,

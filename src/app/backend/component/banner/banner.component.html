@@ -52,6 +52,26 @@
                 </div>
               </div>
               <div class="row">
+                  <div class="col-md-8">
+                      <div class="form-group">
+                            <label for="">Category<sup class="text-danger">*</sup></label>
+                           <select formControlName="category" 
+                                   class="form-control"
+                                    [class.is-invalid]="category.invalid &&
+                                  category.touched">
+                                <option value="" selected disabled>Choose Category</option>
+                                <option value="home">Home</option>
+                                <option value="about">About</option>
+                                <option value="contact">Contact</option>
+                                <option value="equipment">Equipment</option>
+                            </select>
+                                <div *ngIf="category.invalid && category.touched">
+                                    <small *ngIf="category.errors?.required" class="text-danger">Category Required</small>
+                                </div>  
+                          </div>
+                  </div>
+              </div>
+              <div class="row">
                            <div class="col-md-8">
                              <div class="form-group">
                               <label for="button_name">Button Name<sup class="text-danger">*</sup>
@@ -93,7 +113,8 @@
                         <input  type="file" 
                                 class="custom-file-input" 
                                 id="image" 
-                                (change)="selectFile($event)">
+                                (change)="selectFile($event)"
+                                 accept="image/x-png,image/jpeg">                                
                         <input type="text" formControlName="image" style="display: none;"/>
                         <label class="custom-file-label" for="image">Choose file</label>
                         </div>  

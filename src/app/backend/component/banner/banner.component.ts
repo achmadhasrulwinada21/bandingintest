@@ -103,16 +103,18 @@ export class BannerComponent implements OnInit {
    private createForm() {
      this.bannerForm = this.fb.group({
       id: [''],
-      title: ['', [Validators.required]],
+      title:       ['', [Validators.required]],
       button_name: ['', [Validators.required]],
       button_link: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      image: ['', [Validators.required]]
+      category:    ['', [Validators.required]],
+      image:       ['', [Validators.required]]
     });
   }
   public resetForm() {
     this.id.reset()
     this.title.reset()
+    this.category.reset()
     this.description.reset()
     this.button_name.reset()
     this.button_link.reset()
@@ -138,6 +140,9 @@ export class BannerComponent implements OnInit {
        get image() {
           return this.bannerForm.get('image');
             }
+      get category() {
+        return this.bannerForm.get('category');
+      }
 
       public initDataTables() {
               let self = this;

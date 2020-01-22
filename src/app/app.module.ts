@@ -16,14 +16,11 @@ import { ImageUploadComponent } from './backend/shared/component/image-upload/im
 import { CookieService } from 'ngx-cookie-service';
 import { WINDOW_PROVIDERS } from "./backend/shared/service/window.service";
 
-import { FrontendComponent } from './frontend/frontend.component';
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FrontendComponent
+    AppComponent,   
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,116 @@
+<!--start jumbroton-->
+<div class="row">
+<div class="container-fluid"  style="min-height: 500px;background-size: cover;background-repeat: no-repeat" [ngStyle]="{'background-image': 'url(' + bannerUrl + ')'}">
+ <div class="container-fluid" style="background-color:#2d3436;opacity:0.9;height:100%">
+     <div class="container text-center text-light" >
+        <br><br><br>
+        <h1>{{ banner?.title }}</h1>
+        <p [innerHTML]="banner?.description"></p>
+        <a href="{{ banner?.button_link }}" class="btn btn-warning text-light"><b>{{ banner?.button_name }}</b></a>
+    </div> <!--container text-center-->
+  </div> <!--opacity-->
+ </div> <!--container fluid-->
+  </div><!--row-->
+<!--end jumbroton-->
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+         <!--row 1-->
+        <div class="col-lg-3 col-md-6"  *ngFor="let listrental of rental;let i = index" [ngClass]="{'offset-md-2': i === 0}">
+            <div class="single_service wow fadeInLeft" style="background-color: #0a8cff">
+                <div style="text-align: center;padding: 30px;">
+                    <div class="service_icon">
+                     <img src="{{ image_url }}{{ listrental.image }}" alt="service_1" height="40px" width="40px">
+                    </div>
+                </div>
+                   <div class="info text-center">
+                        <span style="font-weight: bold;color:white;padding: 10px;">{{ listrental.name_equipment }}</span>
+                        <h3 style="padding: 10px;font-weight: bold;color:white;font-size: 18px">{{ listrental.harga_awal | currency:'Rp. ':'symbol':'2.0' }} - {{ listrental.harga_akhir | currency:'Rp. ':'symbol':'2.0' }}</h3>
+                    </div><hr>
+                    <div class="service-content">
+                         
+                        <ul style="font-weight: bold;color:white;padding-left: 80px" > 
+                            <ng-container  *ngFor="let json_array of rent_array;let h = index">
+                                <ng-template  [ngIf] = "i == h">  
+                                    <!-- {{ json_array | json }} -->
+                                   <li style="line-height:30px" *ngFor = "let data of json_array">
+                                    {{ data.description_rule.length>30? (data.description_rule | slice:0:30)+'...':(data.description_rule)}}
+                                   </li>
+                                </ng-template>
+                            </ng-container>                   
+                         </ul>
+                    </div>
+                    <div class="row text-center" style="padding: 30px;width:100%;justify-content: center;">
+                        <a class="boxed-btn3" type="submit">&nbsp;Rent Now</a>
+                    </div>
+                </div>
+            </div>
+            <!--row 2-->
+            <!-- <div class="col-lg-3 col-md-6">
+                <div class="single_service wow fadeInLeft" style="background-color: #0a8cff">
+                    <div style="text-align: center;padding: 30px;">
+                        <div class="service_icon">
+                            <img src="../../../assets/img/service_1.webp" alt="service_1.webp" height="40px" width="40px">
+                        </div>
+                    </div>
+                    <div class="info text-center">
+                        <span style="font-weight: bold;color:white;padding: 10px;">Home Loan</span>
+                        <h3 style="padding: 10px;font-weight: bold;color:white;">3000 - 10000</h3>
+                    </div>
+                    <hr>
+                    <div class="service-content">
+                        <ul style="font-weight: bold;color:white;padding-left: 80px">
+                            <li style="line-height:30px">Home Loan</li>
+                            <li style="line-height:30px">Home Loan</li>
+                            <li style="line-height:30px">Home Loan</li>
+                        </ul>
+                    </div>
+                    <div class="row" style="padding: 30px;width:100%;justify-content: center;">
+                        <button class="boxed-btn3" type="submit">&nbsp;Rent Now</button>
+                    </div>
+                </div>
+            </div> -->
+            <!--row 3-->
+            <!-- <div class="col-lg-3 col-md-6">
+                <div class="single_service wow fadeInLeft" style="background-color: #0a8cff">
+                    <div style="text-align: center;padding: 30px;">
+                        <div class="service_icon">
+                            <img src="../../../assets/img/service_1.webp" alt="service_1.webp" height="40px" width="40px">
+                        </div>
+                    </div>
+                    <div class="info text-center">
+                        <span style="font-weight: bold;color:white;padding: 10px;">Home Loan</span>
+                        <h3 style="padding: 10px;font-weight: bold;color:white;">3000 - 10000</h3>
+                    </div>
+                    <hr>
+                    <div class="service-content">
+                        <ul style="font-weight: bold;color:white;padding-left: 80px">
+                            <li style="line-height:30px">Home Loan</li>
+                            <li style="line-height:30px">Home Loan</li>
+                            <li style="line-height:30px">Home Loan</li>
+                        </ul>
+                    </div>
+                    <div class="row text-center" style="padding:30px;width:100%;justify-content: center;">
+                        <button class="boxed-btn3" type="submit">&nbsp;Rent Now</button>
+                    </div>
+                </div>
+            </div> -->
+          </div> <!--row-->
+    </div> <!--container fluid-->
+    <div class="container-fluid" style="background-color: #b5b5b5">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div style="display: flex">
+                    <div style="margin:60px">
+                    <img  [src]="detailrentUrl" *ngIf="detailrentUrl != null" class="img-rounded" alt="tractor" height="250px" width="250px">
+                    </div>
+                    <div style="margin-top:100px;font-weight: bold;color: black">
+                        <h3><strong>{{ detailrent?.title }}</strong></h3>
+                        <p style="color: white">{{ detailrent?.description }}</p>
+                        <a routerLink="" class="btn btn-dark btn-md">Rent Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+       </div>
+    </div>

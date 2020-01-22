@@ -19,6 +19,7 @@ import { MainComponent } from './layout/main/main.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { NavigateTopComponent } from './layout/navigate-top/navigate-top.component';
 
+
 @NgModule({
     imports: [
         CommonModule,
@@ -33,7 +34,8 @@ import { NavigateTopComponent } from './layout/navigate-top/navigate-top.compone
         FooterComponent,
         MainComponent,
         SidebarComponent,
-        NavigateTopComponent,                                
+        NavigateTopComponent,
+                         
     ],
     providers: []
 })

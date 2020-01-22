@@ -5,6 +5,7 @@ export class Banner {
         public description: String,
         public image: String,
         public button_link: String,
-        public button_name: String
+        public button_name: String,
+        public category: String
     ) { }
 }

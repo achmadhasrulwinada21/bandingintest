@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+//menggunakan fa fa icon nya angular
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 //service
@@ -75,10 +76,9 @@ export class FrontendComponent implements OnInit {
       this.statisticService.getAll().subscribe((data_statisctic)=>{
           return this.statisticService.getStatisticById(data_statisctic[0].id).subscribe((data) => {
               this.ListStatistic = data
-                  console.log(JSON.parse(data.statistic.toString()))
+            // menampung data array menjadi json
             this.JsonStatisctic = JSON.parse(data.statistic.toString())
-                //var json_array = JSON.parse(data)
-          })
+         })
                 
         })
     }
@@ -98,16 +98,6 @@ export class FrontendComponent implements OnInit {
   private initSetting(){
     return this.settingService.getSettingByCode("0").subscribe((data) => {
       this.setting = data
-      // this.setting.website_name = data.website_name
-      // this.setting.address = data.address
-      // this.setting.city = data.city
-      // this.setting.email = data.email
-      // this.setting.no_telp = data.no_telp
-      // this.setting.no_fax = data.no_fax
-      // this.setting.copyright = data.copyright
-      // this.setting.logo_fb = data.logo_fb
-      // this.setting.logo_instagram = data.logo_instagram
-      // this.setting.logo_twitter = data.logo_twitter
       
       if(data.logo_fb){
           this.logoFbUrl = this.image_url + data.logo_fb

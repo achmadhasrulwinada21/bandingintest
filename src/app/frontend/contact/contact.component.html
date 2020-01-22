@@ -1,0 +1,82 @@
+<div class="container-fluid" style="margin-bottom: 0px;padding: 0px !important" [ngStyle]="{'background-image': 'url(' + banner1Url + ')'}">
+    <div class="container-fluid" style="background-color:#2d3436;opacity:0.9;height:100%">
+        <div class="row">
+            <div class="col-4 offset-md-2" style="margin-top: 120px;">
+                <h2 style="font-weight:bold;color:white;font-family: Verdana, Geneva, Tahoma, sans-serif">{{ banner?.description }}</h2><br>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18868.566991271877!2d106.75131578468553!3d-6.180575356597372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f702fc6ebbb9%3A0x100460a62d44a8b0!2sPlaza%20Kedoya%20Elok!5e0!3m2!1sen!2sid!4v1579579418066!5m2!1sen!2sid" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+            
+            <div class="col-5" style="margin-top: 40px;">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Form Contact</h4>
+                    </div>
+                    <div class="card-body">
+                       <form [formGroup]="contactForm" (ngSubmit)="createContact()">
+                         <div class="form-group">
+                            <label for="name">Name<sup class="text-danger">*</sup></label>
+                            <input  type="text" 
+                                     id="name" 
+                                     class="form-control" 
+                                     formControlName="name"
+                                     placeholder="fill name heree"
+                                     [class.is-invalid]="name.invalid &&
+                                              name.touched">   
+                            <div *ngIf="name.invalid && name.touched">
+                            <small *ngIf="name.errors?.required" class="text-danger">Name Required</small>
+                        </div>  
+                            </div>
+                            <div class="form-group">
+                            <label for="product">Product<sup class="text-danger">*</sup></label>
+                             <input  type="text" 
+                                     id="product" 
+                                     class="form-control" 
+                                     formControlName="product"
+                                     placeholder="fill product heree"
+                                     [class.is-invalid]="product.invalid &&
+                                              product.touched">   
+                            <div *ngIf="product.invalid && product.touched">
+                            <small *ngIf="product.errors?.required" class="text-danger">Product Required</small>
+                        </div>  
+                        </div>
+                        <div class="form-group">
+                            <label for="">Category<sup class="text-danger">*</sup></label>
+                           <select formControlName="category" 
+                                   class="form-control"
+                                    [class.is-invalid]="category.invalid &&
+                                  category.touched">
+                                <option value="" selected disabled>Choose Category</option>
+                                <option value="Alat Berat">Alat Berat</option>
+                                <option value="Alat Ringan">Alat ringan</option>
+                            </select>
+                                <div *ngIf="category.invalid && category.touched">
+                                    <small *ngIf="category.errors?.required" class="text-danger">Category Required</small>
+                                </div>  
+                          </div>
+                            <div class="form-group">
+                            <label for="price">Price <sup class="text-danger">*</sup></label>
+                            <input  type="text" 
+                                     id="price" 
+                                     class="form-control" 
+                                     formControlName="price"
+                                     placeholder="fill price heree"
+                                     [class.is-invalid]="price.invalid &&
+                                              price.touched">   
+                            <div *ngIf="price.invalid && price.touched">
+                            <small *ngIf="price.errors?.required" class="text-danger">Price Required</small>
+                        </div>  
+                            </div>
+                            <div class="form-group">
+                            <button class="btn btn-primary" type="submit" [disabled]="!contactForm.valid">
+                            <i class="far fa-save"></i>
+                             &nbsp;save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end jumbroton-->
